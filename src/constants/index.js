@@ -17,12 +17,17 @@ import {
 	docker,
 	meta,
 	starbucks,
+	BS,
+	Gurutech,
 	tesla,
 	shopify,
 	carrent,
 	jobit,
 	tripguide,
 	threejs,
+	Rocketbank,
+	Lambocard,
+	Ecourse,
 } from "../assets";
 
 export const navLinks = [
@@ -118,7 +123,7 @@ const experiences = [
 	{
 		title: "Back-end Developer",
 		company_name: "Gurutechnology",
-		icon: starbucks,
+		icon: Gurutech,
 		iconBg: "#383E56",
 		date: "April 2023 - June 2023",
 		points: [
@@ -131,7 +136,7 @@ const experiences = [
 	{
 		title: "Software Engineeer",
 		company_name: "Business Master Software Solutions",
-		icon: tesla,
+		icon: BS,
 		iconBg: "#E6DEDD",
 		date: "Dec 2022 - Feb 2023",
 		points: [
@@ -144,9 +149,9 @@ const experiences = [
 
 const projects = [
 	{
-		name: "Car Rent",
+		name: "Rocket Bank",
 		description:
-			"Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+			"A simple fictitious banking application API. That let's you Deposit, Withdraw, and transfer money",
 		tags: [
 			{
 				name: "react",
@@ -157,54 +162,54 @@ const projects = [
 				color: "green-text-gradient",
 			},
 			{
-				name: "tailwind",
+				name: "Bootstrap",
 				color: "pink-text-gradient",
 			},
 		],
-		image: carrent,
-		source_code_link: "https://github.com/",
+		image: Rocketbank,
+		source_code_link: "https://github.com/IamLiam09/Rocketbank",
 	},
 	{
-		name: "Job IT",
+		name: "E-courses",
 		description:
-			"Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+			"An Ecommerce site to buy courses with api integration, user authentication and authorization",
 		tags: [
 			{
-				name: "react",
+				name: "Laravel",
 				color: "blue-text-gradient",
 			},
 			{
-				name: "restapi",
+				name: "MySql",
 				color: "green-text-gradient",
 			},
 			{
-				name: "scss",
+				name: "Bootstrap",
 				color: "pink-text-gradient",
 			},
 		],
-		image: jobit,
-		source_code_link: "https://github.com/",
+		image: Ecourse,
+		source_code_link: "https://github.com/IamLiam09/Online_library/tree/master",
 	},
 	{
-		name: "Trip Guide",
+		name: "Lambo Card",
 		description:
-			"A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+			"A card game built to check one's retentiveness, added with audio and animation",
 		tags: [
 			{
-				name: "nextjs",
+				name: "React",
 				color: "blue-text-gradient",
 			},
 			{
-				name: "supabase",
+				name: "GIT",
 				color: "green-text-gradient",
 			},
 			{
-				name: "css",
+				name: "SCSS",
 				color: "pink-text-gradient",
 			},
 		],
-		image: tripguide,
-		source_code_link: "https://github.com/",
+		image: Lambocard,
+		source_code_link: "https://github.com/IamLiam09/Memory-card",
 	},
 ];
 

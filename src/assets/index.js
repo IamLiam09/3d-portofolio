@@ -25,10 +25,15 @@ import meta from "./company/meta.png";
 import shopify from "./company/shopify.png";
 import starbucks from "./company/starbucks.png";
 import tesla from "./company/tesla.png";
+import BS from "./company/BS.jpg";
+import Gurutech from "./company/Gurutech.jpg";
 
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
+import Lambocard from "./Lambocard.jpg";
+import Rocketbank from "./Rocketbank.jpg";
+import Ecourse from "./Ecourse.jpg"
 
 export {
   logo,
@@ -59,4 +64,9 @@ export {
   carrent,
   jobit,
   tripguide,
+  BS,
+  Gurutech,
+  Ecourse,
+  Lambocard,
+  Rocketbank,
 };
