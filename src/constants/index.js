@@ -19,6 +19,7 @@ import {
 	starbucks,
 	BS,
 	Gurutech,
+	Livease,
 	tesla,
 	shopify,
 	carrent,
@@ -59,7 +60,7 @@ const services = [
 		icon: backend,
 	},
 	{
-		title: "Content Creator",
+		title: "Product Manager",
 		icon: creator,
 	},
 ];
@@ -120,6 +121,17 @@ const technologies = [
 ];
 
 const experiences = [
+	{
+		title: "Senior Software Engineer",
+		company_name: "LIVEASE",
+		icon: Livease,
+		iconBg: "#E6DEDD",
+		date: "Oct 2023 - May 2024",
+		points: [
+			"Refactored/changed legacy code for the ERP system, introducing modern development practices and reducing codebase size by 75%, which reduced the average bug resolution time from 2 weeks to a week",
+			"Conducted daily meetings and weekly code reviews, enhancing the team skills in modern software development practices, leading to a 10% increase in team efficiency and a 50% reduction in onboarding new hires",
+		],
+	},
 	{
 		title: "Back-end Developer",
 		company_name: "Gurutechnology",

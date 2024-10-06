@@ -27,6 +27,7 @@ import starbucks from "./company/starbucks.png";
 import tesla from "./company/tesla.png";
 import BS from "./company/BS.jpg";
 import Gurutech from "./company/Gurutech.jpg";
+import Livease from "./company/Livease.jpeg"
 
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
@@ -69,4 +70,5 @@ export {
   Ecourse,
   Lambocard,
   Rocketbank,
+  Livease,
 };
