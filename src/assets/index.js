@@ -32,7 +32,7 @@ import Livease from "./company/Livease.jpeg"
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
-import Lambocard from "./Lambocard.jpg";
+import Healthpal from "./Healthpal.png";
 import Rocketbank from "./Rocketbank.jpg";
 import Ecourse from "./Ecourse.jpg"
 
@@ -68,7 +68,7 @@ export {
   BS,
   Gurutech,
   Ecourse,
-  Lambocard,
+  Healthpal,
   Rocketbank,
   Livease,
 };

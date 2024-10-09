@@ -27,7 +27,7 @@ import {
 	tripguide,
 	threejs,
 	Rocketbank,
-	Lambocard,
+	Healthpal,
 	Ecourse,
 } from "../assets";
 
@@ -161,6 +161,27 @@ const experiences = [
 
 const projects = [
 	{
+		name: "My Health Pal",
+		description:
+			"A medical chatbot from Symptoms to Diagnosis, our AI Powered Chatbots are programmed to serve you in unique ways.",
+		tags: [
+			{
+				name: "React",
+				color: "blue-text-gradient",
+			},
+			{
+				name: "Express",
+				color: "green-text-gradient",
+			},
+			{
+				name: "MongoDB",
+				color: "pink-text-gradient",
+			},
+		],
+		image: Healthpal,
+		source_code_link: "https://github.com/hemarle/health?tab=readme-ov-file",
+	},
+	{
 		name: "Rocket Bank",
 		description:
 			"A simple fictitious banking application API. That let's you Deposit, Withdraw, and transfer money",
@@ -201,27 +222,6 @@ const projects = [
 		],
 		image: Ecourse,
 		source_code_link: "https://github.com/IamLiam09/Online_library/tree/master",
-	},
-	{
-		name: "Lambo Card",
-		description:
-			"A card game built to check one's retentiveness, added with audio and animation",
-		tags: [
-			{
-				name: "React",
-				color: "blue-text-gradient",
-			},
-			{
-				name: "GIT",
-				color: "green-text-gradient",
-			},
-			{
-				name: "SCSS",
-				color: "pink-text-gradient",
-			},
-		],
-		image: Lambocard,
-		source_code_link: "https://github.com/IamLiam09/Memory-card",
 	},
 ];
 
