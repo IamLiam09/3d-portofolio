@@ -41,9 +41,9 @@ const Contact = () => {
         "template_nutpo1k",
         {
           from_name: form.name,
-          to_name: "William Ndubuisi",
+          to_name: "Prince Ndubuisi",
           from_email: form.email,
-          to_email: "williamndubuisidev@gmail.com",
+          to_email: "princendubuisidev@gmail.com",
           message: form.message,
         },
         "Iyxa7aUhMqVPIG76E",

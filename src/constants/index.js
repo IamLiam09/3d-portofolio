@@ -29,6 +29,9 @@ import {
 	Rocketbank,
 	Healthpal,
 	Ecourse,
+	solidity,
+	Eth,
+	graphql
 } from "../assets";
 
 export const navLinks = [
@@ -48,11 +51,11 @@ export const navLinks = [
 
 const services = [
 	{
-		title: "Web Developer",
+		title: "Fullstack Developer",
 		icon: web,
 	},
 	{
-		title: "Frontend Developer",
+		title: "Product Manager",
 		icon: mobile,
 	},
 	{
@@ -60,7 +63,7 @@ const services = [
 		icon: backend,
 	},
 	{
-		title: "Product Manager",
+		title: "Community Manager",
 		icon: creator,
 	},
 ];
@@ -87,8 +90,8 @@ const technologies = [
 		icon: reactjs,
 	},
 	{
-		name: "Redux Toolkit",
-		icon: redux,
+		name: "graphql",
+		icon: graphql,
 	},
 	{
 		name: "Tailwind CSS",
@@ -111,12 +114,16 @@ const technologies = [
 		icon: git,
 	},
 	{
-		name: "figma",
-		icon: figma,
+		name: "solidty",
+		icon: solidity,
 	},
 	{
 		name: "docker",
 		icon: docker,
+	},
+	{
+		name: "Eth",
+		icon: Eth,
 	},
 ];
 
