@@ -46,14 +46,16 @@ const About = () => {
 				variants={fadeIn('', '', 0.1, 1)}
 				className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]"
 			>
-				I am a highly skilled software developer specializing in web
-				development, with expertise in TypeScript, PHP, Python, and JavaScript.
-				My proficiency extends to advanced frameworks and libraries such as
-				React, Node.js, Three.js, Laravel, and Symfony. As a Fullstack
-				Developer, Product Manager, and Blockchain Developer, I focus on
-				creating efficient, scalable, and user-centric websites and products
-				that address real-world challenges. Additionally, I am a passionate
-				cryptocurrency enthusiast, deeply engaged in the blockchain space.
+				I am a versatile professional skilled in blockchain
+				development, product management, web development, and software
+				engineering. With expertise in building scalable backend systems,
+				AI-powered applications, ERP systems and intuitive user interfaces, I deliver
+				innovative and efficient solutions. I specialize in leveraging
+				technologies like React, Laravel, Django, Node.js, and blockchain
+				frameworks to create robust and impactful products. Passionate about
+				continuous learning, I excel in collaborative environments, driving
+				project success through technical excellence and effective team
+				leadership.
 			</motion.p>
 
 			<div className="mt-20 flex flex-wrap gap-10">

@@ -55,11 +55,11 @@ const services = [
 		icon: web,
 	},
 	{
-		title: "Product Manager",
+		title: "Blockchain Developer",
 		icon: mobile,
 	},
 	{
-		title: "Backend Developer",
+		title: "Product Manager",
 		icon: backend,
 	},
 	{
@@ -135,21 +135,19 @@ const experiences = [
 		iconBg: "#E6DEDD",
 		date: "Oct 2023 - May 2024",
 		points: [
-			"Refactored/changed legacy code for the ERP system, introducing modern development practices and reducing codebase size by 75%, which reduced the average bug resolution time from 2 weeks to a week",
+			"Led a team of 4 in a high-stakes SAAS project, delivering the project two weeks ahead of schedule, resulting in a 3% bonus for the team and high praise from the Product Manager and Client",
 			"Conducted daily meetings and weekly code reviews, enhancing the team skills in modern software development practices, leading to a 10% increase in team efficiency and a 50% reduction in onboarding new hires",
 		],
 	},
 	{
-		title: "Back-end Developer",
+		title: "Backend Developer",
 		company_name: "Gurutechnology",
 		icon: Gurutech,
 		iconBg: "#383E56",
 		date: "April 2023 - June 2023",
 		points: [
-			"Developing and maintaining web applications using Laravel and PHP other related technologies.",
-			"Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-			"Streamlined backend database structure through efficient design and optimization, resulting in a 40% reduction in query response time and improved system performance.",
-			"Participating in code reviews and providing constructive feedback to other developers.",
+			"Streamlined the backend database by implementing efficient design principles; achieved a 40% reduction in query response time and significantly enhanced overall system performance and reliability.",
+			"Emphasized building a robust, modular backend architecture, resulting in a 50% boost in database query and API endpoint reusability. This significantly improved overall backend efficiency and maintainability.",
 		],
 	},
 	{
@@ -161,7 +159,7 @@ const experiences = [
 		points: [
 			"Mastered PHP, Laravel, and MySQL in line with job requirements, yielding a 40% improvement in development efficiency. Also, refactored Laravel codebases, reducing bugs by 25%.",
 			"Demonstrated versatility as a full-stack developer, with hands-on experience in both backend (PHP, Laravel) and frontend (React, JavaScript, HTML5, CSS3) development, aligning with the job's technology stack",
-			"Successfully integrated RESTful API gateway payment solutions, including PayPal and Stripe, resulting in a 20% increase in transaction efficiency and a 15% boost in user satisfaction.",
+			
 		],
 	},
 ];
@@ -194,11 +192,11 @@ const projects = [
 			"A simple fictitious banking application API. That let's you Deposit, Withdraw, and transfer money",
 		tags: [
 			{
-				name: "react",
+				name: "React",
 				color: "blue-text-gradient",
 			},
 			{
-				name: "mongodb",
+				name: "MongoDB",
 				color: "green-text-gradient",
 			},
 			{
