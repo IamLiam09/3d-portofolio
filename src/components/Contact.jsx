@@ -37,13 +37,13 @@ const Contact = () => {
 
     emailjs
       .send(
-        "service_fjrcf2u",
-        "template_nutpo1k",
+        "service_ep0x91l",
+        "template_mmov0uv",
         {
           from_name: form.name,
-          to_name: "Prince Ndubuisi",
+          to_name: "William Ndubuisi",
           from_email: form.email,
-          to_email: "princendubuisidev@gmail.com",
+          to_email: "williamndubuisidev@gmail.com",
           message: form.message,
         },
         "Iyxa7aUhMqVPIG76E",
