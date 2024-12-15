@@ -5,9 +5,6 @@ import { styles } from '../styles';
 import { navLinks } from '../constants';
 import { logo, menu, close } from '../assets';
 import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
-// import { G } from '@react-oauth/google';
-// import { useGoogleOneTapLogin } from '@react-oauth/google';
-// import { googleLogout } from '@react-oauth/google';
 import { ethers } from 'ethers';
 
 const Navbar = () => {
@@ -34,20 +31,25 @@ const Navbar = () => {
 
 	const handleMetaMaskLogin = async () => {
 		try {
-			if (!window.ethereum) {
-				alert('MetaMask is not installed!');
+			// Check if MetaMask is available
+			if (typeof window.ethereum === 'undefined') {
+				alert('MetaMask is not installed! Please install it to continue.');
 				return;
 			}
 
-			// Request account access
-			const provider = new ethers.providers.Web3Provider(window.ethereum);
-			await provider.send('eth_requestAccounts', []);
-			const signer = provider.getSigner();
-			const address = await signer.getAddress();
+			// Create a provider and request access to accounts
+			const provider = new ethers.BrowserProvider(window.ethereum); 
+			const accounts = await provider.send('eth_requestAccounts', []); 
 
-			console.log('Logged in with MetaMask:', address);
+			// Get the signer
+			const signer = await provider.getSigner();
+
+			// Fetch the address
+			const address = await signer.getAddress(); 
+
+			// console.log('Logged in with MetaMask:', address);
 			setIsLoggedIn(true);
-			setLoginType('MetaMask'); 
+			setLoginType('MetaMask');
 		} catch (error) {
 			console.error('MetaMask login failed:', error);
 		}
@@ -74,34 +76,53 @@ const Navbar = () => {
 						Prince Ndubuisi &nbsp;
 					</p>
 				</Link>
-				<GoogleOAuthProvider clientId="262631439908-s0937993d5a3r4svulmrnh7gbqvs6b01.apps.googleusercontent.com">
-					{!isLoggedIn && (
-						<GoogleLogin
-							onSuccess={(credentialResponse) => {
-								setIsLoggedIn(true);
-                setLoginType('Google');
-							}}
-							onError={() => {
-								console.log('Login Failed');
-							}}
-							useOneTap
-							auto_select
-						/>
-					)}
-					{isLoggedIn && (
-						<ul className="list-none hidden sm:flex flex-row gap-10">
-							{navLinks.map((nav) => (
-								<li
-									key={nav.id}
-									className={`${
-										active === nav.title ? 'text-white' : 'text-secondary'
-									} hover:text-white text-[18px] font-medium cursor-pointer`}
-									onClick={() => setActive(nav.title)}
-								>
-									<a href={`#${nav.id}`}>{nav.title}</a>
-								</li>
-							))}
-						</ul>
+				<GoogleOAuthProvider clientId="262631439908-s0937993d5a3r4svulmrnh7gbqvs6b01.apps.googleusercontent.com
+">
+					{!isLoggedIn ? (
+						<div className="flex gap-4">
+							{/* Google Login */}
+							<GoogleLogin
+								onSuccess={(credentialResponse) => {
+									setIsLoggedIn(true);
+									setLoginType('Google');
+								}}
+								onError={() => {
+									console.log('Google Login Failed');
+								}}
+								useOneTap
+								auto_select
+							/>
+
+							{/* MetaMask Login */}
+							<button
+								onClick={handleMetaMaskLogin}
+								className="bg-blue-500 text-white px-4 py-2 rounded"
+							>
+								Login with MetaMask
+							</button>
+						</div>
+					) : (
+						<div className="flex items-center">
+							{/* Show Login Type */}
+							<p className="text-secondary text-[14px] mr-4">
+								Logged in using: <strong>{loginType}</strong>
+							</p>
+
+							{/* Navigation Menu */}
+							<ul className="list-none hidden sm:flex flex-row gap-10">
+								{navLinks.map((nav) => (
+									<li
+										key={nav.id}
+										className={`${
+											active === nav.title ? 'text-white' : 'text-secondary'
+										} hover:text-white text-[18px] font-medium cursor-pointer`}
+										onClick={() => setActive(nav.title)}
+									>
+										<a href={`#${nav.id}`}>{nav.title}</a>
+									</li>
+								))}
+							</ul>
+						</div>
 					)}
 				</GoogleOAuthProvider>
 				<div className="sm:hidden flex flex-1 justify-end items-center">
