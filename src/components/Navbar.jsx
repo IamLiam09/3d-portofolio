@@ -16,20 +16,31 @@ const Navbar = () => {
 	const [loginType, setLoginType] = useState('');
 	const [showModal, setShowModal] = useState(false);
 
-	useEffect(() => {
-		const handleScroll = () => {
-			const scrollTop = window.scrollY;
-			if (scrollTop > 100) {
-				setScrolled(true);
-			} else {
-				setScrolled(false);
-			}
-		};
-
-		window.addEventListener('scroll', handleScroll);
-
-		return () => window.removeEventListener('scroll', handleScroll);
-	}, []);
+  useEffect(() => {
+    const handleScroll = (e) => {
+      if (!isLoggedIn) {
+        e.preventDefault(); 
+        setShowModal(true); // Show the modal when a scroll attempt is detected
+        window.scrollTo(0, 0); // Reset scroll position to the top
+      } else {
+        const scrollTop = window.scrollY;
+        setScrolled(scrollTop > 100);
+      }
+    };
+  
+    if (showModal) {
+      document.body.style.overflow = 'hidden'; 
+    } else {
+      document.body.style.overflow = ''; 
+    }
+  
+    window.addEventListener('scroll', handleScroll, { passive: false }); 
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      document.body.style.overflow = ''; 
+    };
+  }, [isLoggedIn, showModal]);
+  
 
 	const handleMetaMaskLogin = async () => {
 		try {
@@ -89,9 +100,9 @@ const Navbar = () => {
 							{/* Modal Window */}
 							{showModal && (
 								<div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-									<div className="bg-white p-6 rounded-lg shadow-lg w-[300px]">
-										<h2 className="text-xl font-semibold text-center mb-4">
-											Choose Login Method
+									<div className="bg-black p-10 rounded-lg shadow-lg w-[300px]">
+										<h2 className="text-xl font-bold text-center mb-4">
+											Login 
 										</h2>
 										<div className="flex flex-col gap-4">
 											<GoogleLogin
@@ -114,7 +125,7 @@ const Navbar = () => {
 										</div>
 										<button
 											onClick={() => setShowModal(false)}
-											className="mt-4 text-red-500 text-sm underline w-full text-center"
+											className="mt-4 text-red-500 text-sm w-full text-center"
 										>
 											Cancel
 										</button>
@@ -124,9 +135,6 @@ const Navbar = () => {
 						</div>
 					) : (
 						<div className="flex items-center">
-							<p className="text-secondary text-[14px] mr-4">
-								Logged in using: <strong>{loginType}</strong>
-							</p>
 							<ul className="list-none hidden sm:flex flex-row gap-10">
 								{navLinks.map((nav) => (
 									<li

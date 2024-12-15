@@ -27,7 +27,7 @@ const Computers = ({ isMobile }) => {
 			rotation: [-0.01, -0.2, -0.1],
 		},
 		tablet: {
-			scale: 2.5,
+			scale: 1,
 			position: [0, -0.5, -0.6],
 			rotation: [-0.01, -0.2, -0.1],
 		},
