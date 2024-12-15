@@ -6,6 +6,7 @@ import { navLinks } from '../constants';
 import { logo, menu, close } from '../assets';
 import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
 import { ethers } from 'ethers';
+import { FiLogIn } from 'react-icons/fi';
 
 const Navbar = () => {
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -13,6 +14,7 @@ const Navbar = () => {
 	const [toggle, setToggle] = useState(false);
 	const [scrolled, setScrolled] = useState(false);
 	const [loginType, setLoginType] = useState('');
+	const [showModal, setShowModal] = useState(false);
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -38,18 +40,14 @@ const Navbar = () => {
 			}
 
 			// Create a provider and request access to accounts
-			const provider = new ethers.BrowserProvider(window.ethereum); 
-			const accounts = await provider.send('eth_requestAccounts', []); 
-
-			// Get the signer
+			const provider = new ethers.BrowserProvider(window.ethereum);
+			const accounts = await provider.send('eth_requestAccounts', []);
 			const signer = await provider.getSigner();
+			const address = await signer.getAddress();
 
-			// Fetch the address
-			const address = await signer.getAddress(); 
-
-			// console.log('Logged in with MetaMask:', address);
 			setIsLoggedIn(true);
 			setLoginType('MetaMask');
+			setShowModal(false);
 		} catch (error) {
 			console.error('MetaMask login failed:', error);
 		}
@@ -76,39 +74,59 @@ const Navbar = () => {
 						Prince Ndubuisi &nbsp;
 					</p>
 				</Link>
-				<GoogleOAuthProvider clientId="262631439908-s0937993d5a3r4svulmrnh7gbqvs6b01.apps.googleusercontent.com
-">
+				<GoogleOAuthProvider
+					clientId="262631439908-s0937993d5a3r4svulmrnh7gbqvs6b01.apps.googleusercontent.com
+"
+				>
 					{!isLoggedIn ? (
-						<div className="flex gap-4">
-							{/* Google Login */}
-							<GoogleLogin
-								onSuccess={(credentialResponse) => {
-									setIsLoggedIn(true);
-									setLoginType('Google');
-								}}
-								onError={() => {
-									console.log('Google Login Failed');
-								}}
-								useOneTap
-								auto_select
+						<div>
+							{/* Login Icon */}
+							<FiLogIn
+								className="text-white text-[24px] cursor-pointer"
+								onClick={() => setShowModal(true)}
 							/>
 
-							{/* MetaMask Login */}
-							<button
-								onClick={handleMetaMaskLogin}
-								className="bg-blue-500 text-white px-4 py-2 rounded"
-							>
-								Login with MetaMask
-							</button>
+							{/* Modal Window */}
+							{showModal && (
+								<div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+									<div className="bg-white p-6 rounded-lg shadow-lg w-[300px]">
+										<h2 className="text-xl font-semibold text-center mb-4">
+											Choose Login Method
+										</h2>
+										<div className="flex flex-col gap-4">
+											<GoogleLogin
+												onSuccess={(credentialResponse) => {
+													setIsLoggedIn(true);
+													setLoginType('Google');
+													setShowModal(false); // Close modal on success
+												}}
+												onError={() => {
+													console.log('Google Login Failed');
+												}}
+												className="w-full"
+											/>
+											<button
+												onClick={handleMetaMaskLogin}
+												className="bg-blue-500 text-white py-2 px-4 rounded w-full"
+											>
+												Login with MetaMask
+											</button>
+										</div>
+										<button
+											onClick={() => setShowModal(false)}
+											className="mt-4 text-red-500 text-sm underline w-full text-center"
+										>
+											Cancel
+										</button>
+									</div>
+								</div>
+							)}
 						</div>
 					) : (
 						<div className="flex items-center">
-							{/* Show Login Type */}
 							<p className="text-secondary text-[14px] mr-4">
 								Logged in using: <strong>{loginType}</strong>
 							</p>
-
-							{/* Navigation Menu */}
 							<ul className="list-none hidden sm:flex flex-row gap-10">
 								{navLinks.map((nav) => (
 									<li
